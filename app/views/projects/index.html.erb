@@ -2,7 +2,7 @@
 <h1>Listing Projects</h1>
 <%= link_to 'add Project', new_project_path %>
 
-<table>
+<table class="table">
   <tr>
     <th>Project Name</th>
     <th>Project Tier1</th>
@@ -23,3 +23,15 @@
     </tr>
   <% end %>
 </table>
+
+<div class="center jumbotron">
+  <h1>Welcome to the Sample App</h1>
+
+  <h2>
+    This is the home page for the
+    <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>
+    sample application.
+  </h2>
+
+  <%= link_to "Sign up now!", '#', class: "btn btn-lg btn-primary" %>
+</div>

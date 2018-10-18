@@ -1,5 +1,6 @@
+
 <%= form_with(model: @project, local: true) do |form| %>
- 
+
     <% if @project.errors.any? %>
       <div id="error_explanation">
         <h2>
@@ -13,23 +14,24 @@
         </ul>
       </div>
     <% end %>
-  
+  <div class="form-group">
       <p>
         <%= form.label :project_name %><br>
-        <%= form.text_field :project_name %>
+        <%= form.text_field :project_name, class:"form-control" %>
       </p>
-     
+
       <p>
         <%= form.label :project_tier1 %><br>
-        <%= form.text_area :project_tier1 %>
+        <%= form.text_area :project_tier1, class:"form-control" %>
       </p>
-  
+
       <p>
       <%= form.label :project_oem %><br>
-      <%= form.text_area :project_oem %>
+      <%= form.text_area :project_oem, class:"form-control"%>
       </p>
-   
+
     <p>
-      <%= form.submit %>
+      <%= form.submit class: "btn btn-primary" %>
     </p>
 <% end %>
+</div>

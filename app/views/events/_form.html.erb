@@ -1,4 +1,4 @@
-<%= form_with(model: [@project, @project.events.build ], local: true) do |form| %> 
+<%= form_with(model: [@project, event], local: true) do |form| %> 
   <p>
     <%= form.label :event_type %><br>
     <%= form.text_field :event_type %>

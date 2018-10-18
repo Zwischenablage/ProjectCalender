@@ -3,4 +3,7 @@
   <td><%= event.event_start %></td>
   <td><%= event.event_duration %></td>
   <td><%= link_to 'Edit', edit_project_event_path(event.project_id, event.id) %></td>
+  <td><%= link_to 'Delete', project_event_path(event.project_id, event),
+          method: :delete,
+          data: { confirm: 'Are you sure?' } %></td>
 </tr>

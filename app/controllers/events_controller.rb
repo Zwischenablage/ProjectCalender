@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
     def new
-      @event = Event.new
+      @project = Project.find(params[:project_id])
+      @event = @project.events.build
     end
 
     def edit
@@ -15,6 +16,7 @@ class EventsController < ApplicationController
     end
 
     def update
+      @project = Project.find(params[:project_id])
       @event = Event.find(params[:id])
 
       if @event.update(event_params)
@@ -22,6 +24,15 @@ class EventsController < ApplicationController
       else
         render 'edit'
       end
+    end
+
+    def destroy
+      @project = Project.find(params[:project_id])
+      @event = Event.find(params[:id])
+
+      @event.destroy
+      redirect_to @project
+
     end
 
       private

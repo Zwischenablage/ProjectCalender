@@ -1,9 +1,5 @@
 <h1>Edit Event</h1>
 
-<%= render plain: params[@event].inspect %>
-<%= render plain: @event.inspect %>
-<%= render plain: @project.inspect %>
-
 <%= render 'form', project:@project , event:@event %>
 
 <%= link_to 'Back', projects_path %>

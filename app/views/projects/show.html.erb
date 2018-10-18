@@ -27,5 +27,4 @@
 <% end %>
 
 <h2>Add a Event:</h2>
-<%= render plain: @project.inspect %>
-<%= render 'events/form' %>
+<%= render 'events/form', project:@project , event:@project.events.build %>
