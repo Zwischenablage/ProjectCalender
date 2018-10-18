@@ -1,0 +1,25 @@
+
+<h1>Listing Projects</h1>
+<%= link_to 'add Project', new_project_path %>
+
+<table>
+  <tr>
+    <th>Project Name</th>
+    <th>Project Tier1</th>
+    <th>Project OEM</th>
+    <th></th>
+  </tr>
+
+  <% @projects.each do |project| %>
+    <tr>
+      <td><%= project.project_name %></td>
+      <td><%= project.project_tier1 %></td>
+      <td><%= project.project_oem %></td>
+      <td><%= link_to 'Show', project_path(project) %></td>
+      <td><%= link_to 'Edit', edit_project_path(project) %></td>
+      <td><%= link_to 'Delete', project_path(project),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>

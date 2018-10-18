@@ -1,0 +1,31 @@
+<%= link_to 'Back', projects_path %>
+<p>
+  <strong>Project:</strong>
+  <%= @project.project_name %>
+</p>
+
+<p>
+  <strong>Project TierOne:</strong>
+  <%= @project.project_tier1 %>
+</p>
+
+<p>
+  <strong>Project OEM:</strong>
+  <%= @project.project_oem %>
+</p>
+
+<% if @project.events.size > 0 %>
+  <h2>Events</h2>
+  <table>
+  <tr>
+    <th>Event Type</th>
+    <th>Start Date</th>
+    <th>Duration</th>
+  </tr>
+  <%= render @project.events %>
+  </table>
+<% end %>
+
+<h2>Add a Event:</h2>
+<%= render plain: @project.inspect %>
+<%= render 'events/form' %>

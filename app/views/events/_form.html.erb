@@ -1,0 +1,17 @@
+<%= form_with(model: [@project, @project.events.build ], local: true) do |form| %> 
+  <p>
+    <%= form.label :event_type %><br>
+    <%= form.text_field :event_type %>
+  </p>
+  <p>
+    <%= form.label :event_start %><br>
+    <%= form.text_area :event_start %>
+  </p>
+  <p>
+    <%= form.label :event_duration %><br>
+    <%= form.text_area :event_duration %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

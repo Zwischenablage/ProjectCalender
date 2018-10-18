@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event_type: MyString
+  event_start: 2018-10-12
+  event_duration: 1
+  project: one
+
+two:
+  event_type: MyString
+  event_start: 2018-10-12
+  event_duration: 1
+  project: two

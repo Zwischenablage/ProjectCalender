@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  projectName: MyString
+  projectTier1: MyString
+  projectOem: MyString
+
+two:
+  projectName: MyString
+  projectTier1: MyString
+  projectOem: MyString
