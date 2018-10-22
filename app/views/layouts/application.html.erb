@@ -5,8 +5,15 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <% if false %>
+    https://www.youtube.com/watch?v=hRDtcTjhoC0
+    https://www.lugolabs.com/articles/using-webpacker-in-ruby-on-rails-applications
+    Here we replaced the stylesheet_link_tag and javascript_include_tag helpers with the new stylesheet_pack_tag and javascript_pack_tag respectively. This replaces the asset pipeline with Webpack. If we run the app now, we should be able to see assets served by Webpack.
+   <% end %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
@@ -26,5 +33,6 @@
     <%= yield %>
   </div>
   <%= render 'layouts/footer' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>

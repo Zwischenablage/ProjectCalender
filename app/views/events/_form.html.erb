@@ -1,11 +1,11 @@
-<%= form_with(model: [@project, event], local: true) do |form| %> 
+<%= form_with(model: [@project, event], local: true) do |form| %>
   <p>
     <%= form.label :event_type %><br>
     <%= form.text_field :event_type %>
   </p>
   <p>
     <%= form.label :event_start %><br>
-    <%= form.text_area :event_start %>
+    <%= form.text_field :event_start, class: "datepicker" %>
   </p>
   <p>
     <%= form.label :event_duration %><br>
@@ -14,4 +14,5 @@
   <p>
     <%= form.submit %>
   </p>
+
 <% end %>
