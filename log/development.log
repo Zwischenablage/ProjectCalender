@@ -10366,3 +10366,865 @@ Processing by ProjectsController#show as HTML
 Completed 200 OK in 2589ms (Views: 2585.1ms | ActiveRecord: 0.5ms)
 
 
+Started POST "/projects/2/events" for 127.0.0.1 at 2018-10-22 18:36:26 +0200
+Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yj46LDul1MGgwsobBHV3OjHPcZtTJFw18mj4onu6o4j2oUiyNlJxEJvEaOtiJKkdlrcKwl1a3Q8U3aUMwhYI7Q==", "event"=>{"event_type"=>"", "event_start"=>"2018-10-03", "event_duration"=>""}, "commit"=>"Create Event", "project_id"=>"2"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:14
+  [1m[36mEvent Create (3.2ms)[0m  [1m[32mINSERT INTO "events" ("event_type", "event_start", "project_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["event_type", ""], ["event_start", "2018-10-03"], ["project_id", 2], ["created_at", "2018-10-22 16:36:26.272123"], ["updated_at", "2018-10-22 16:36:26.272123"]]
+  ↳ app/controllers/events_controller.rb:14
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/events_controller.rb:14
+Redirected to http://localhost:3000/projects/2
+Completed 302 Found in 13ms (ActiveRecord: 5.1ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 18:36:26 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [3 times] (1.1ms)
+  Rendered events/_form.html.erb (2.4ms)
+  Rendered projects/show.html.erb within layouts/application (11.0ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 74ms (Views: 69.5ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/projects/2/events/6" for 127.0.0.1 at 2018-10-22 18:36:30 +0200
+Processing by EventsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"qt6JxXz1YaxDtr/BacSU/Okr1cjZmJ+2iEdJ7vExglKWQftbcQLEfXiwHTEPlUrbTlOukdfmHoxu8hRASJ0pNw==", "project_id"=>"2", "id"=>"6"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:30
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:31
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:33
+  [1m[36mEvent Destroy (0.4ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 6]]
+  ↳ app/controllers/events_controller.rb:33
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/events_controller.rb:33
+Redirected to http://localhost:3000/projects/2
+Completed 302 Found in 6ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 18:36:30 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [2 times] (0.8ms)
+  Rendered events/_form.html.erb (2.4ms)
+  Rendered projects/show.html.erb within layouts/application (9.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 66ms (Views: 62.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 18:40:52 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (3.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [2 times] (4.5ms)
+  Rendered events/_form.html.erb (8.4ms)
+  Rendered projects/show.html.erb within layouts/application (39.2ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/danielendres/Documents/GitHub2018/ProjectCalender/public/packs
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 4581ms (Views: 4554.1ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 18:42:28 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [2 times] (1.3ms)
+  Rendered events/_form.html.erb (2.8ms)
+  Rendered projects/show.html.erb within layouts/application (13.7ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/danielendres/Documents/GitHub2018/ProjectCalender/public/packs
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 3919ms (Views: 3914.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 18:44:38 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [2 times] (1.0ms)
+  Rendered events/_form.html.erb (2.7ms)
+  Rendered projects/show.html.erb within layouts/application (11.3ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/danielendres/Documents/GitHub2018/ProjectCalender/public/packs
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 4437ms (Views: 4432.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 18:46:51 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [2 times] (1.0ms)
+  Rendered events/_form.html.erb (2.9ms)
+  Rendered projects/show.html.erb within layouts/application (12.4ms)
+Completed 500 Internal Server Error in 98ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (Invalid CSS after "    width: 20%;": expected "}", was ""):
+    10:     https://www.lugolabs.com/articles/using-webpacker-in-ruby-on-rails-applications
+    11:     Here we replaced the stylesheet_link_tag and javascript_include_tag helpers with the new stylesheet_pack_tag and javascript_pack_tag respectively. This replaces the asset pipeline with Webpack. If we run the app now, we should be able to see assets served by Webpack.
+    12:    <% end %>
+    13:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    14:     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    15:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    16: 
+  
+app/assets/stylesheets/custom.scss:80
+app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb__2295418834077283149_70324556383900'
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 18:47:04 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [2 times] (1.1ms)
+  Rendered events/_form.html.erb (2.3ms)
+  Rendered projects/show.html.erb within layouts/application (15.9ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 1718ms (Views: 1714.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/projects/2/events" for 127.0.0.1 at 2018-10-22 18:47:19 +0200
+Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AuVocoI8KC/mB06iUn5kKInPi9riMnEJFjSPmm3OJlk+ehrsj8uN/t0B7FI0L7oPLrfwg+xM8DPwgdI01GKNPA==", "event"=>{"event_type"=>"test", "event_start"=>"2018-10-14", "event_duration"=>""}, "commit"=>"Create Event", "project_id"=>"2"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:13
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:14
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("event_type", "event_start", "project_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["event_type", "test"], ["event_start", "2018-10-14"], ["project_id", 2], ["created_at", "2018-10-22 16:47:19.083544"], ["updated_at", "2018-10-22 16:47:19.083544"]]
+  ↳ app/controllers/events_controller.rb:14
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/events_controller.rb:14
+Redirected to http://localhost:3000/projects/2
+Completed 302 Found in 6ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 18:47:19 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [3 times] (0.9ms)
+  Rendered events/_form.html.erb (2.1ms)
+  Rendered projects/show.html.erb within layouts/application (13.7ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 76ms (Views: 72.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/projects/2/events/16/edit" for 127.0.0.1 at 2018-10-22 18:47:33 +0200
+Processing by EventsController#edit as HTML
+  Parameters: {"project_id"=>"2", "id"=>"16"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:8
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."project_id" = ? AND "events"."id" = ? LIMIT ?[0m  [["project_id", 2], ["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:9
+  Rendering events/edit.html.erb within layouts/application
+  Rendered events/_form.html.erb (2.6ms)
+  Rendered events/edit.html.erb within layouts/application (5.5ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 58ms (Views: 53.4ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/projects/2/events/16" for 127.0.0.1 at 2018-10-22 18:47:37 +0200
+Processing by EventsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wDuurz3c+YTf0upXcRy/kWqU3sUVkS6oLq/4BidWd1JD/7257DFkyzryFMECweyxioPLya+x3GCkOB1D/wNTjg==", "event"=>{"event_type"=>"test", "event_start"=>"2018-10-02", "event_duration"=>""}, "commit"=>"Update Event", "project_id"=>"2", "id"=>"16"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:19
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:20
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:22
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:22
+  [1m[36mEvent Update (1.3ms)[0m  [1m[33mUPDATE "events" SET "event_start" = ?, "updated_at" = ? WHERE "events"."id" = ?[0m  [["event_start", "2018-10-02"], ["updated_at", "2018-10-22 16:47:37.397857"], ["id", 16]]
+  ↳ app/controllers/events_controller.rb:22
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/events_controller.rb:22
+Redirected to http://localhost:3000/projects/2
+Completed 302 Found in 14ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 18:47:37 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [3 times] (1.6ms)
+  Rendered events/_form.html.erb (7.0ms)
+  Rendered projects/show.html.erb within layouts/application (17.4ms)
+  Rendered layouts/_footer.html.erb (1.4ms)
+Completed 200 OK in 94ms (Views: 90.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 18:55:00 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [3 times] (1.0ms)
+  Rendered events/_form.html.erb (0.7ms)
+  Rendered projects/show.html.erb within layouts/application (8.4ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.4ms)
+
+
+  
+SyntaxError (/Users/danielendres/Documents/GitHub2018/ProjectCalender/app/views/events/_form.html.erb:15: syntax error, unexpected '='
+...fer.append=( form.submit class="btn btn-primary" );@output_b...
+...                              ^):
+  
+app/views/events/_form.html.erb:15: syntax error, unexpected '='
+app/views/projects/show.html.erb:30:in `_app_views_projects_show_html_erb___3291470227592234677_70324577803340'
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 18:55:13 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [3 times] (0.9ms)
+  Rendered events/_form.html.erb (1.8ms)
+  Rendered projects/show.html.erb within layouts/application (9.0ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 65ms (Views: 61.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 18:56:06 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [3 times] (1.2ms)
+  Rendered events/_form.html.erb (1.8ms)
+  Rendered projects/show.html.erb within layouts/application (11.1ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 65ms (Views: 60.9ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/projects/2/events" for 127.0.0.1 at 2018-10-22 18:56:13 +0200
+Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vsuARaIFPj7aq3n72hZPP0QgBy3EhCvDDeQ+tGHrvcqCVPLbr/Kb7+Gt2wu8R5EY41h8dMr6qvnrUWMa2EcWrw==", "event"=>{"event_type"=>"", "event_start"=>"", "event_duration"=>""}, "commit"=>"Create Event", "project_id"=>"2"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:13
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:14
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("event_type", "project_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["event_type", ""], ["project_id", 2], ["created_at", "2018-10-22 16:56:13.687654"], ["updated_at", "2018-10-22 16:56:13.687654"]]
+  ↳ app/controllers/events_controller.rb:14
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/events_controller.rb:14
+Redirected to http://localhost:3000/projects/2
+Completed 302 Found in 12ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 18:56:13 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [4 times] (1.0ms)
+  Rendered events/_form.html.erb (3.0ms)
+  Rendered projects/show.html.erb within layouts/application (11.2ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 59ms (Views: 55.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/projects/2/events" for 127.0.0.1 at 2018-10-22 18:56:16 +0200
+Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ISVdusws5uXdGvmIlPvA8STssfzaCQ5hBMotGnkVTUMdui8kwdtDNOYcW3jyqh7Wg5TKpdR3j1vif3C0wLnmJg==", "event"=>{"event_type"=>"", "event_start"=>"", "event_duration"=>""}, "commit"=>"Create Event", "project_id"=>"2"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:13
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:14
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("event_type", "project_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["event_type", ""], ["project_id", 2], ["created_at", "2018-10-22 16:56:16.939750"], ["updated_at", "2018-10-22 16:56:16.939750"]]
+  ↳ app/controllers/events_controller.rb:14
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/events_controller.rb:14
+Redirected to http://localhost:3000/projects/2
+Completed 302 Found in 10ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 18:56:16 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [5 times] (1.0ms)
+  Rendered events/_form.html.erb (2.0ms)
+  Rendered projects/show.html.erb within layouts/application (9.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 58ms (Views: 54.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 18:57:26 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [5 times] (1.0ms)
+  Rendered events/_form.html.erb (1.7ms)
+  Rendered projects/show.html.erb within layouts/application (10.1ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 62ms (Views: 58.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 18:57:56 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [5 times] (1.3ms)
+  Rendered events/_form.html.erb (2.5ms)
+  Rendered projects/show.html.erb within layouts/application (19.1ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 89ms (Views: 85.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 18:59:13 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [5 times] (1.2ms)
+  Rendered events/_form.html.erb (2.1ms)
+  Rendered projects/show.html.erb within layouts/application (12.7ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 67ms (Views: 62.4ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/projects/2/events" for 127.0.0.1 at 2018-10-22 18:59:18 +0200
+Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Iwif1RItXuVujOAS7oXR3By+Fj9gARZ9mgtaWzrosQEfl+1LH9r7NFWKQuKI1A/7u8ZtZm5/l0d8vgf1g0QaZA==", "event"=>{"event_type"=>"", "event_start"=>"", "event_duration"=>""}, "commit"=>"Create Event", "project_id"=>"2"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:13
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:14
+  [1m[36mEvent Create (0.5ms)[0m  [1m[32mINSERT INTO "events" ("event_type", "project_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["event_type", ""], ["project_id", 2], ["created_at", "2018-10-22 16:59:18.257212"], ["updated_at", "2018-10-22 16:59:18.257212"]]
+  ↳ app/controllers/events_controller.rb:14
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/events_controller.rb:14
+Redirected to http://localhost:3000/projects/2
+Completed 302 Found in 7ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 18:59:18 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [6 times] (1.2ms)
+  Rendered events/_form.html.erb (1.8ms)
+  Rendered projects/show.html.erb within layouts/application (9.6ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 67ms (Views: 62.9ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/projects/2/events/18" for 127.0.0.1 at 2018-10-22 18:59:22 +0200
+Processing by EventsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"8Vs60UJRmZUj+g4OGr8oIvxhSwEDBqV8/iigzDpfmzzNxEhPT6Y8RBj8rP587vYFWxkwWA14JEYYnf1ig/MwWQ==", "project_id"=>"2", "id"=>"18"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:30
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:31
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:33
+  [1m[36mEvent Destroy (0.3ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 18]]
+  ↳ app/controllers/events_controller.rb:33
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/events_controller.rb:33
+Redirected to http://localhost:3000/projects/2
+Completed 302 Found in 6ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 18:59:22 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [5 times] (1.1ms)
+  Rendered events/_form.html.erb (2.4ms)
+  Rendered projects/show.html.erb within layouts/application (11.2ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 58ms (Views: 54.5ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/projects/2/events/19" for 127.0.0.1 at 2018-10-22 18:59:24 +0200
+Processing by EventsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"u5qcdItRHka7PDilh/ejqWctKnxzWork3+jtQljBPgSHBe7qhqa7l4A6mlXhpn2OwFVRJX0kC945XbDs4W2VYQ==", "project_id"=>"2", "id"=>"19"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:30
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:31
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:33
+  [1m[36mEvent Destroy (0.5ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 19]]
+  ↳ app/controllers/events_controller.rb:33
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/events_controller.rb:33
+Redirected to http://localhost:3000/projects/2
+Completed 302 Found in 5ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 18:59:24 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [4 times] (1.1ms)
+  Rendered events/_form.html.erb (2.8ms)
+  Rendered projects/show.html.erb within layouts/application (10.9ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 56ms (Views: 52.8ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/projects/2/events/17" for 127.0.0.1 at 2018-10-22 18:59:27 +0200
+Processing by EventsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"WX6ACXEt7GxFjFhGYboxf7kvuKJ4aKinFfGZQpZNMERl4fKXfNpJvX6K+rYH6+9YHlfD+3YWKZ3zRMTsL+GbIQ==", "project_id"=>"2", "id"=>"17"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:30
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:31
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:33
+  [1m[36mEvent Destroy (0.3ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 17]]
+  ↳ app/controllers/events_controller.rb:33
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/events_controller.rb:33
+Redirected to http://localhost:3000/projects/2
+Completed 302 Found in 5ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 18:59:27 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [3 times] (0.8ms)
+  Rendered events/_form.html.erb (2.3ms)
+  Rendered projects/show.html.erb within layouts/application (9.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 61ms (Views: 57.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 19:05:09 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [3 times] (1.3ms)
+  Rendered events/_form.html.erb (1.9ms)
+  Rendered projects/show.html.erb within layouts/application (11.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 70ms (Views: 65.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 19:05:34 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [3 times] (1.2ms)
+  Rendered events/_form.html.erb (1.6ms)
+  Rendered projects/show.html.erb within layouts/application (10.1ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 57ms (Views: 53.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 19:05:37 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [3 times] (1.3ms)
+  Rendered events/_form.html.erb (1.8ms)
+  Rendered projects/show.html.erb within layouts/application (10.9ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 53ms (Views: 49.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 19:05:38 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [3 times] (0.9ms)
+  Rendered events/_form.html.erb (2.0ms)
+  Rendered projects/show.html.erb within layouts/application (10.7ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 55ms (Views: 51.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 19:05:39 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [3 times] (0.8ms)
+  Rendered events/_form.html.erb (1.6ms)
+  Rendered projects/show.html.erb within layouts/application (9.0ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 49ms (Views: 46.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 19:05:50 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [3 times] (0.9ms)
+  Rendered events/_form.html.erb (2.3ms)
+  Rendered projects/show.html.erb within layouts/application (9.6ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 54ms (Views: 49.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 19:07:11 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [3 times] (1.1ms)
+  Rendered events/_form.html.erb (2.2ms)
+  Rendered projects/show.html.erb within layouts/application (10.1ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 74ms (Views: 70.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 19:07:12 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [3 times] (0.8ms)
+  Rendered events/_form.html.erb (2.4ms)
+  Rendered projects/show.html.erb within layouts/application (10.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 62ms (Views: 58.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 19:07:16 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [3 times] (0.8ms)
+  Rendered events/_form.html.erb (1.7ms)
+  Rendered projects/show.html.erb within layouts/application (8.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 52ms (Views: 49.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 19:07:17 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [3 times] (0.8ms)
+  Rendered events/_form.html.erb (1.8ms)
+  Rendered projects/show.html.erb within layouts/application (9.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 54ms (Views: 50.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 19:07:22 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [3 times] (0.9ms)
+  Rendered events/_form.html.erb (1.6ms)
+  Rendered projects/show.html.erb within layouts/application (9.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 52ms (Views: 48.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 19:07:39 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [3 times] (2.2ms)
+  Rendered events/_form.html.erb (1.8ms)
+  Rendered projects/show.html.erb within layouts/application (11.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 53ms (Views: 49.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 19:07:41 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [3 times] (0.8ms)
+  Rendered events/_form.html.erb (6.6ms)
+  Rendered projects/show.html.erb within layouts/application (14.0ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 58ms (Views: 53.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 19:07:43 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [3 times] (0.8ms)
+  Rendered events/_form.html.erb (1.6ms)
+  Rendered projects/show.html.erb within layouts/application (8.4ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 51ms (Views: 47.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 19:08:10 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [3 times] (1.3ms)
+  Rendered events/_form.html.erb (2.9ms)
+  Rendered projects/show.html.erb within layouts/application (12.3ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 60ms (Views: 55.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 19:08:21 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [3 times] (1.0ms)
+  Rendered events/_form.html.erb (1.7ms)
+  Rendered projects/show.html.erb within layouts/application (9.4ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 55ms (Views: 51.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 19:08:27 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [3 times] (0.8ms)
+  Rendered events/_form.html.erb (1.7ms)
+  Rendered projects/show.html.erb within layouts/application (8.9ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 53ms (Views: 49.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2018-10-22 19:09:03 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:17
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:25
+  Rendered collection of events/_event.html.erb [3 times] (1.0ms)
+  Rendered events/_form.html.erb (1.8ms)
+  Rendered projects/show.html.erb within layouts/application (9.3ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 54ms (Views: 50.6ms | ActiveRecord: 0.4ms)
+
+

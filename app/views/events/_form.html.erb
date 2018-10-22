@@ -2,17 +2,22 @@
   <p>
     <%= form.label :event_type %><br>
     <%= form.text_field :event_type %>
+    <div class="btn-group" role="group" aria-label="Basic example">
+  <button type="button" class="btn btn-primary">Left</button>
+  <button type="button" class="btn btn-secondary">Middle</button>
+  <button type="button" class="btn btn-secondary">Right</button>
+  </div>
   </p>
   <p>
     <%= form.label :event_start %><br>
-    <%= form.text_field :event_start, class: "datepicker" %>
+    <%= form.text_field :event_start, class: "datepicker", placeholder:"Pick a date" %>
   </p>
   <p>
     <%= form.label :event_duration %><br>
     <%= form.text_area :event_duration %>
   </p>
   <p>
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-primary" %>
   </p>
 
 <% end %>

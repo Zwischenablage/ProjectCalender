@@ -19,6 +19,8 @@ import 'flatpickr/dist/themes/airbnb'
 //import 'flatpickr/dist/themes/material_red'
 
 flatpickr(".datepicker", {
-
+  altInput: true,
+    altFormat: "j F, Y",
+    dateFormat: "Y-m-d",
 });
 console.log('flatpickr config')
