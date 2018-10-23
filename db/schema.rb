@@ -13,7 +13,8 @@
 ActiveRecord::Schema.define(version: 2018_10_12_120605) do
 
   create_table "events", force: :cascade do |t|
-    t.string "event_type"
+    t.integer "event_type"
+    t.string "event_description"
     t.date "event_start"
     t.integer "event_duration"
     t.integer "project_id"

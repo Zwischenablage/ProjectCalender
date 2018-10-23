@@ -1,12 +1,16 @@
 <%= form_with(model: [@project, event], local: true) do |form| %>
   <p>
     <%= form.label :event_type %><br>
-    <%= form.text_field :event_type %>
+    <%= select_tag :status, options_for_select(Event.types.map {|k, v| [k.humanize.capitalize, v]}) %>    
     <div class="btn-group" role="group" aria-label="Basic example">
   <button type="button" class="btn btn-primary">Left</button>
   <button type="button" class="btn btn-secondary">Middle</button>
   <button type="button" class="btn btn-secondary">Right</button>
   </div>
+  </p>
+  <p>
+    <%= form.label :event_description %><br>
+    <%= form.text_field :event_description %>
   </p>
   <p>
     <%= form.label :event_start %><br>
