@@ -9,7 +9,9 @@
 
 console.log('Hello World from Webpacker')
 import flatpickr from 'flatpickr'
+import { German } from "flatpickr/dist/l10n/de.js"
 import 'flatpickr/dist/themes/airbnb'
+
 //import 'flatpickr/dist/themes/confetti'
 //import 'flatpickr/dist/themes/dark'
 //import 'flatpickr/dist/themes/light'
@@ -22,5 +24,8 @@ flatpickr(".datepicker", {
   altInput: true,
     altFormat: "j F, Y",
     dateFormat: "Y-m-d",
+    weekNumbers: true,
+    "locale": German, // locale for this instance only
+
 });
 console.log('flatpickr config')
