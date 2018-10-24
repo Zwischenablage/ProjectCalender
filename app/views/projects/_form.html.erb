@@ -1,37 +1,15 @@
 
-<%= form_with(model: @project, local: true) do |form| %>
+<%= simple_form_for(@project) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-    <% if @project.errors.any? %>
-      <div id="error_explanation">
-        <h2>
-          <%= pluralize(@project.errors.count, "error") %> prohibited
-          this project from being saved:
-        </h2>
-        <ul>
-          <% @project.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-  <div class="form-group">
-      <p>
-        <%= form.label :project_name %><br>
-        <%= form.text_field :project_name, class:"form-control" %>
-      </p>
+  <div class="form-inputs">
+    <%= f.input :project_name %>
+    <%= f.input :project_tier1 %>
+    <%= f.input :project_oem %>
+  </div>
 
-      <p>
-        <%= form.label :project_tier1 %><br>
-        <%= form.text_area :project_tier1, class:"form-control" %>
-      </p>
-
-      <p>
-      <%= form.label :project_oem %><br>
-      <%= form.text_area :project_oem, class:"form-control"%>
-      </p>
-
-    <p>
-      <%= form.submit class: "btn btn-primary" %>
-    </p>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
 <% end %>
-</div>

@@ -13,11 +13,11 @@
 ActiveRecord::Schema.define(version: 2018_10_12_120605) do
 
   create_table "events", force: :cascade do |t|
+    t.integer "project_id"
     t.integer "event_type"
     t.string "event_description"
     t.date "event_start"
     t.integer "event_duration"
-    t.integer "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_events_on_project_id"

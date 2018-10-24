@@ -1,11 +1,17 @@
-<%= form_with(model: [@project, event], local: true) do |form| %>
+<%= form_with(model: [@project, @event], local: true) do |form| %>
   <p>
     <%= form.label :event_type %><br>
     <%= form.select :event_type, Event.event_types.keys %>    
-    <div class="btn-group" role="group" aria-label="Basic example">
-  <button type="button" class="btn btn-primary">Left</button>
-  <button type="button" class="btn btn-secondary">Middle</button>
-  <button type="button" class="btn btn-secondary">Right</button>
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+    <label class="btn btn-outline-secondary">
+      <input type="radio" name="options" id="option1" autocomplete="off"> Porting
+    </label>
+    <label class="btn btn-outline-secondary active">
+      <input type="radio" name="options" id="option2" autocomplete="off" checked> APQM
+    </label>
+    <label class="btn btn-outline-secondary">
+      <input type="radio" name="options" id="option3" autocomplete="off"> Tuning
+    </label>
   </div>
   </p>
   <p>
@@ -24,4 +30,21 @@
     <%= form.submit class:"btn btn-primary" %>
   </p>
 
+<% end %>
+
+<%= simple_form_for([@project, @event]) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+  <div class="btn-group" role="group" aria-label="Basic example">
+   <%= f.input :event_type, input_html: {class:"btn btn-secondary"}, collection: Event.event_types.keys, as: :radio_buttons  %>
+   </div>
+  <%= f.input :event_description %>
+  <%= f.input :event_start, as: :string, input_html: { class: 'datepicker' }, placeholder: 'Pick a date' %>
+  <%= f.input :event_duration %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn-outline-primary" %>
+  </div>
 <% end %>
